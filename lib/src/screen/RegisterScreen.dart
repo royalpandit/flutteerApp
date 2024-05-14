@@ -6,7 +6,6 @@ class RegisterScreen extends StatelessWidget {
   const RegisterScreen({super.key});
 
   onPressButtonOne(context) {
-
     print("This is two");
     Navigator.push(
       context,
@@ -19,8 +18,8 @@ class RegisterScreen extends StatelessWidget {
 
   onTabButton(context) {
     print("this is onTab Button");
-        Navigator.push(context, MaterialPageRoute(builder: (context)=>ListScreen()));
-
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => ListScreen()));
   }
 
   onPressIconButton() {
@@ -54,7 +53,7 @@ class RegisterScreen extends StatelessWidget {
                 height: 100,
                 color: Colors.greenAccent,
                 child: TextButton(
-                  onPressed: ()=>onPressButtonOne(context),
+                  onPressed: () => onPressButtonOne(context),
                   child: Text("Click Button one"),
                 ),
               ),

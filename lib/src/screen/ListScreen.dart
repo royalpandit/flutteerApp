@@ -7,13 +7,19 @@ class ListScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    onPressBack(context) {
+      Navigator.pop(context);
+    }
+
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          leading: const Icon(Icons.backspace),
-          title: const Text("Login Screen"),
-          actions: const [Icon(Icons.help_center)],
-        ),
+            leading: IconButton(
+              onPressed: () => onPressBack(context),
+              icon: const Icon(Icons.backspace),
+            ),
+            title: Text("Login Screen"),
+            actions: const [Icon(Icons.help_center)]),
         body: ListView.builder(
           itemBuilder: (context, index) => ListTile(
             leading: Image(
@@ -21,7 +27,6 @@ class ListScreen extends StatelessWidget {
               height: 300,
             ),
             title: Text("Categories"),
-            
             onTap: () => Navigator.push(context,
                 MaterialPageRoute(builder: (context) => LoginScreen())),
             subtitle: Text("Sub Categories"),
