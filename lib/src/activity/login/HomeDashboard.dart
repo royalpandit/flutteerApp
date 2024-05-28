@@ -5,6 +5,7 @@ import 'package:flutter_image_slideshow/flutter_image_slideshow.dart';
 import 'package:hells/src/activity/login/ActivityInsideDashboard.dart';
 import 'package:hells/src/activity/login/ActivityWithdraw.dart';
 import 'package:hells/src/component/Header.dart';
+import 'package:hells/src/component/HeaderNew.dart';
 import 'package:ticker_text/ticker_text.dart';
 
 class HomeDashboard extends StatefulWidget {
@@ -15,6 +16,13 @@ class HomeDashboard extends StatefulWidget {
 
 class _HomeDashboardState extends State<HomeDashboard> {
   List data = ["Apple", "Banana", "Cat", "Dog", "Elephant"];
+  var dataMarket1;
+  var titles = "Home Screens";
+  var imageBack = "assets/images/back.png";
+  var imageAddCart = "assets/images/menu.png";
+  var imageMenu = "assets/images/kbr.png";
+  var imageNotifications = "assets/images/kbr.png";
+  var seconImageNotifications = "assets/images/menu.png";
   List dataSub = [
     "A sweet, crisp, and juicy fruit with a vibrant red or green skin, enjoyed worldwide for its delicious flavor and nutritional value.",
     "Yellow, curved, sweet, potassium-rich, nutritious,potassium-laden, peelable, smooth.",
@@ -22,6 +30,418 @@ class _HomeDashboardState extends State<HomeDashboard> {
     "Canine, loyal, friendly, playful, obedient, furry, protective, energetic, lovable, intelligent, affectionate, trainable, faithful, barking, tail-wagging, adventurous, social, devoted, sniffing, cuddly.",
     "Giant, majestic, intelligent, trunked, tusked, wrinkled, herbivorous, social, family-oriented, gray, enormous, powerful, gentle, endangered, impressive, massive, lumbering, tusker, iconic, herbivore."
   ];
+
+  var datamarketNew = [
+    {
+      "id": 1,
+      "name": "kalyan Bazar",
+      "marketRecord": "xxx-00x-xxx",
+      "OpenTime": "11:00 AM",
+      "CloseTime": "11:45 AM",
+      "Game": [
+        {
+          "gID": 1,
+          "name": "Single Digit",
+          "image":
+              "https://static.libertyprim.com/files/familles/pomme-large.jpg?1569271834"
+        },
+        {
+          "gID": 2,
+          "name": "Double Digit",
+          "image":
+              "https://images.pexels.com/photos/235294/pexels-photo-235294.jpeg?cs=srgb&dl=pexels-wdnet-235294.jpg&fm=jpg"
+        },
+        {
+          "gID": 3,
+          "name": "Single Pana",
+          "image":
+              "https://static.libertyprim.com/files/familles/pomme-large.jpg?1569271834"
+        },
+        {
+          "gID": 4,
+          "name": "Triple Pana",
+          "image":
+              "https://images.pexels.com/photos/235294/pexels-photo-235294.jpeg?cs=srgb&dl=pexels-wdnet-235294.jpg&fm=jpg"
+        },
+        {
+          "gID": 5,
+          "name": "Half Sanagm",
+          "image":
+              "https://static.libertyprim.com/files/familles/pomme-large.jpg?1569271834"
+        },
+        {
+          "gID": 6,
+          "name": "Full Sanagam",
+          "image":
+              "https://static.libertyprim.com/files/familles/pomme-large.jpg?1569271834"
+        },
+        {
+          "gID": 7,
+          "name": "Full Pana",
+          "image":
+              "https://static.libertyprim.com/files/familles/pomme-large.jpg?1569271834"
+        },
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Madhur Market",
+      "marketRecord": "xxx-01x-xxx",
+      "OpenTime": "11:01 AM",
+      "CloseTime": "11:46 AM",
+      "Game": [
+        {
+          "gID": 1,
+          "name": "Single Digit",
+          "image":
+              "https://static.libertyprim.com/files/familles/pomme-large.jpg?1569271834"
+        },
+        {
+          "gID": 2,
+          "name": "Double Digit",
+          "image":
+              "https://images.pexels.com/photos/235294/pexels-photo-235294.jpeg?cs=srgb&dl=pexels-wdnet-235294.jpg&fm=jpg"
+        },
+        {
+          "gID": 3,
+          "name": "Single Pana",
+          "image":
+              "https://static.libertyprim.com/files/familles/pomme-large.jpg?1569271834"
+        },
+        {
+          "gID": 4,
+          "name": "Triple Pana",
+          "image":
+              "https://images.pexels.com/photos/235294/pexels-photo-235294.jpeg?cs=srgb&dl=pexels-wdnet-235294.jpg&fm=jpg"
+        },
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Sindh Bazar",
+      "marketRecord": "xxx-02x-xxx",
+      "OpenTime": "11:02 AM",
+      "CloseTime": "11:47 AM",
+      "Game": [
+        {
+          "gID": 1,
+          "name": "Single Digit",
+          "image":
+              "https://static.libertyprim.com/files/familles/pomme-large.jpg?1569271834"
+        },
+        {
+          "gID": 2,
+          "name": "Double Digit",
+          "image":
+              "https://images.pexels.com/photos/235294/pexels-photo-235294.jpeg?cs=srgb&dl=pexels-wdnet-235294.jpg&fm=jpg"
+        },
+        {
+          "gID": 3,
+          "name": "Single Pana",
+          "image":
+              "https://static.libertyprim.com/files/familles/pomme-large.jpg?1569271834"
+        },
+        {
+          "gID": 4,
+          "name": "Triple Pana",
+          "image":
+              "https://images.pexels.com/photos/235294/pexels-photo-235294.jpeg?cs=srgb&dl=pexels-wdnet-235294.jpg&fm=jpg"
+        },
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Boos Bank",
+      "marketRecord": "xxx-03x-xxx",
+      "OpenTime": "11:03 AM",
+      "CloseTime": "11:48 AM",
+      "Game": [
+        {
+          "gID": 1,
+          "name": "Single Digit",
+          "image":
+              "https://static.libertyprim.com/files/familles/pomme-large.jpg?1569271834"
+        },
+        {
+          "gID": 2,
+          "name": "Double Digit",
+          "image":
+              "https://images.pexels.com/photos/235294/pexels-photo-235294.jpeg?cs=srgb&dl=pexels-wdnet-235294.jpg&fm=jpg"
+        },
+        {
+          "gID": 3,
+          "name": "Single Pana",
+          "image":
+              "https://static.libertyprim.com/files/familles/pomme-large.jpg?1569271834"
+        },
+        {
+          "gID": 4,
+          "name": "Triple Pana",
+          "image":
+              "https://images.pexels.com/photos/235294/pexels-photo-235294.jpeg?cs=srgb&dl=pexels-wdnet-235294.jpg&fm=jpg"
+        },
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Panval Bazar",
+      "marketRecord": "xxx-04x-xxx",
+      "OpenTime": "11:04 AM",
+      "CloseTime": "11:49 AM",
+      "Game": [
+        {
+          "gID": 1,
+          "name": "Single Digit",
+          "image":
+              "https://static.libertyprim.com/files/familles/pomme-large.jpg?1569271834"
+        },
+        {
+          "gID": 2,
+          "name": "Double Digit",
+          "image":
+              "https://images.pexels.com/photos/235294/pexels-photo-235294.jpeg?cs=srgb&dl=pexels-wdnet-235294.jpg&fm=jpg"
+        },
+        {
+          "gID": 3,
+          "name": "Single Pana",
+          "image":
+              "https://static.libertyprim.com/files/familles/pomme-large.jpg?1569271834"
+        },
+        {
+          "gID": 4,
+          "name": "Triple Pana",
+          "image":
+              "https://images.pexels.com/photos/235294/pexels-photo-235294.jpeg?cs=srgb&dl=pexels-wdnet-235294.jpg&fm=jpg"
+        },
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Dhan Makret",
+      "marketRecord": "xxx-05x-xxx",
+      "OpenTime": "11:05 AM",
+      "CloseTime": "11:51 AM",
+      "Game": [
+        {
+          "gID": 1,
+          "name": "Single Digit",
+          "image":
+              "https://static.libertyprim.com/files/familles/pomme-large.jpg?1569271834"
+        },
+        {
+          "gID": 2,
+          "name": "Double Digit",
+          "image":
+              "https://images.pexels.com/photos/235294/pexels-photo-235294.jpeg?cs=srgb&dl=pexels-wdnet-235294.jpg&fm=jpg"
+        },
+        {
+          "gID": 5,
+          "name": "Half Sanagm",
+          "image":
+              "https://static.libertyprim.com/files/familles/pomme-large.jpg?1569271834"
+        },
+        {
+          "gID": 6,
+          "name": "Full Sanagam",
+          "image":
+              "https://static.libertyprim.com/files/familles/pomme-large.jpg?1569271834"
+        },
+        {
+          "gID": 7,
+          "name": "Full Pana",
+          "image":
+              "https://static.libertyprim.com/files/familles/pomme-large.jpg?1569271834"
+        },
+      ]
+    },
+    {
+      "id": 7,
+      "name": "DP Market",
+      "marketRecord": "xxx-06x-xxx",
+      "OpenTime": "11:06 AM",
+      "CloseTime": "11:52 AM",
+      "Game": [
+        {
+          "gID": 1,
+          "name": "Single Digit",
+          "image":
+              "https://static.libertyprim.com/files/familles/pomme-large.jpg?1569271834"
+        },
+        {
+          "gID": 2,
+          "name": "Double Digit",
+          "image":
+              "https://images.pexels.com/photos/235294/pexels-photo-235294.jpeg?cs=srgb&dl=pexels-wdnet-235294.jpg&fm=jpg"
+        },
+        {
+          "gID": 3,
+          "name": "Single Pana",
+          "image":
+              "https://static.libertyprim.com/files/familles/pomme-large.jpg?1569271834"
+        },
+        {
+          "gID": 4,
+          "name": "Triple Pana",
+          "image":
+              "https://images.pexels.com/photos/235294/pexels-photo-235294.jpeg?cs=srgb&dl=pexels-wdnet-235294.jpg&fm=jpg"
+        },
+        {
+          "gID": 5,
+          "name": "Half Sanagm",
+          "image":
+              "https://static.libertyprim.com/files/familles/pomme-large.jpg?1569271834"
+        },
+        {
+          "gID": 6,
+          "name": "Full Sanagam",
+          "image":
+              "https://static.libertyprim.com/files/familles/pomme-large.jpg?1569271834"
+        },
+        {
+          "gID": 7,
+          "name": "Full Pana",
+          "image":
+              "https://static.libertyprim.com/files/familles/pomme-large.jpg?1569271834"
+        },
+      ]
+    },
+    {
+      "id": 8,
+      "name": "Host Bazar",
+      "marketRecord": "xxx-07x-xxx",
+      "OpenTime": "11:07 AM",
+      "CloseTime": "11:53 AM",
+      "Game": [
+        {
+          "gID": 1,
+          "name": "Single Digit",
+          "image":
+              "https://static.libertyprim.com/files/familles/pomme-large.jpg?1569271834"
+        },
+        {
+          "gID": 2,
+          "name": "Double Digit",
+          "image":
+              "https://images.pexels.com/photos/235294/pexels-photo-235294.jpeg?cs=srgb&dl=pexels-wdnet-235294.jpg&fm=jpg"
+        },
+        {
+          "gID": 3,
+          "name": "Single Pana",
+          "image":
+              "https://static.libertyprim.com/files/familles/pomme-large.jpg?1569271834"
+        },
+        {
+          "gID": 4,
+          "name": "Triple Pana",
+          "image":
+              "https://images.pexels.com/photos/235294/pexels-photo-235294.jpeg?cs=srgb&dl=pexels-wdnet-235294.jpg&fm=jpg"
+        },
+        {
+          "gID": 5,
+          "name": "Half Sanagm",
+          "image":
+              "https://static.libertyprim.com/files/familles/pomme-large.jpg?1569271834"
+        },
+        {
+          "gID": 6,
+          "name": "Full Sanagam",
+          "image":
+              "https://static.libertyprim.com/files/familles/pomme-large.jpg?1569271834"
+        },
+        {
+          "gID": 7,
+          "name": "Full Pana",
+          "image":
+              "https://static.libertyprim.com/files/familles/pomme-large.jpg?1569271834"
+        },
+      ]
+    },
+    {
+      "id": 9,
+      "name": "Seven Digit",
+      "marketRecord": "xxx-08x-xxx",
+      "OpenTime": "11:078 AM",
+      "CloseTime": "11:54 AM",
+      "Game": [
+        {
+          "gID": 1,
+          "name": "Single Digit",
+          "image":
+              "https://static.libertyprim.com/files/familles/pomme-large.jpg?1569271834"
+        },
+        {
+          "gID": 2,
+          "name": "Double Digit",
+          "image":
+              "https://images.pexels.com/photos/235294/pexels-photo-235294.jpeg?cs=srgb&dl=pexels-wdnet-235294.jpg&fm=jpg"
+        },
+        {
+          "gID": 3,
+          "name": "Single Pana",
+          "image":
+              "https://static.libertyprim.com/files/familles/pomme-large.jpg?1569271834"
+        },
+        {
+          "gID": 4,
+          "name": "Triple Pana",
+          "image":
+              "https://images.pexels.com/photos/235294/pexels-photo-235294.jpeg?cs=srgb&dl=pexels-wdnet-235294.jpg&fm=jpg"
+        },
+        {
+          "gID": 5,
+          "name": "Half Sanagm",
+          "image":
+              "https://static.libertyprim.com/files/familles/pomme-large.jpg?1569271834"
+        },
+        {
+          "gID": 6,
+          "name": "Full Sanagam",
+          "image":
+              "https://static.libertyprim.com/files/familles/pomme-large.jpg?1569271834"
+        },
+        {
+          "gID": 7,
+          "name": "Full Pana",
+          "image":
+              "https://static.libertyprim.com/files/familles/pomme-large.jpg?1569271834"
+        },
+      ]
+    },
+    {
+      "id": 10,
+      "name": "Single Digit",
+      "marketRecord": "xxx-09x-xxx",
+      "OpenTime": "11:09 AM",
+      "CloseTime": "11:55 AM",
+      "Game": [
+        {
+          "gID": 4,
+          "name": "Triple Pana",
+          "image":
+              "https://images.pexels.com/photos/235294/pexels-photo-235294.jpeg?cs=srgb&dl=pexels-wdnet-235294.jpg&fm=jpg"
+        },
+        {
+          "gID": 5,
+          "name": "Half Sanagm",
+          "image":
+              "https://static.libertyprim.com/files/familles/pomme-large.jpg?1569271834"
+        },
+        {
+          "gID": 6,
+          "name": "Full Sanagam",
+          "image":
+              "https://static.libertyprim.com/files/familles/pomme-large.jpg?1569271834"
+        },
+        {
+          "gID": 7,
+          "name": "Full Pana",
+          "image":
+              "https://static.libertyprim.com/files/familles/pomme-large.jpg?1569271834"
+        },
+      ]
+    },
+  ];
+
   var dataMarket = {
     "id": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
     "marketName": [
@@ -119,205 +539,225 @@ class _HomeDashboardState extends State<HomeDashboard> {
     "assets/images/elephatnt.jpeg"
   ];
   List dataImagess = [
-    "https://www.shutterstock.com/image-photo/ancient-temple-ruins-gadi-sagar-260nw-786126286.jpg",
+    "https://picsum.photos/id/237/200/300",
     "https://cdn.pixabay.com/photo/2015/04/23/22/00/tree-736885_640.jpg",
     "https://st2.depositphotos.com/2001755/8564/i/450/depositphotos_85647140-stock-photo-beautiful-landscape-with-birds.jpg",
     "https://cdn.create.vista.com/api/media/small/54939973/stock-photo-beautiful-sunset-landscape",
     "https://images.pexels.com/photos/326055/pexels-photo-326055.jpeg?auto=compress&cs=tinysrgb&w=800"
   ];
   onPressNext(context) {
-    Navigator.of(context).push(MaterialPageRoute(
-        builder: (context) => ActivityWithdraw(name: dataMarket)));
+    Navigator.of(context).push(MaterialPageRoute(builder: (context) => ActivityWithdraw(name: dataMarket)));
   }
 
-  OnPressMarket(context) {
-    Navigator.of(context).push(
-        MaterialPageRoute(builder: (context) => ActivityInsideDashboard()));
+  OnPressMarket(context, game) {
+    // Navigator.of(context).push(MaterialPageRoute(builder: (context) => ActivityInsideDashboard()));
+    Navigator.of(context).push(MaterialPageRoute(
+        builder: (context) => ActivityInsideDashboard(game1: game)));
   }
 
   onPressBack(context) {
     Navigator.pop(context);
   }
 
+  onPressBacks() {
+    print("Click This Icon");
+    Navigator.pop(context);
+  }
+
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
-    return MaterialApp(
-      home: Scaffold(
-        /* appBar: AppBar(
+    return Scaffold(
+      /* appBar: AppBar(
           leading: IconButton(
             onPressed: () => onPressBack(context),
             icon: Icon(Icons.arrow_back_ios),
           ),
           title: Text("Kalyan"),
         ), */
-        body: Container(
-            child: Column(
-          children: [
-            Container(height: 50, child: Header()),
-            Container(
-              //   child:SafeArea(child: child)
+
+      body: SafeArea(
+          child: Container(
               child: Column(
-                children: [
-                  /* Container(
-                height: height * .2,
-                width: double.maxFinite,
-                decoration: BoxDecoration(color: Colors.red),
-                //  decoration:BoxDecoration(borderRadius: BorderRadius.circular(15)),
-                padding: EdgeInsets.all(8),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(10),
-                  child: SizedBox.fromSize(
-                    child: ImageSlideshow(
-                      width: 1000,
-                      height: 200,
-                      initialPage: 0,
-                      indicatorColor: Colors.blue,
-                      isLoop: true,
-                      autoPlayInterval: 2000,
-                      children:
-                          List<Widget>.generate(dataImagess.length, (index) {
-                        return Image.network(
-                          dataImagess[index],
-                          fit: BoxFit.fill,
-                        );
-                      }),
+        children: [
+          Container(
+            height: height*.1,
+              child: Header(
+                  title: titles,
+                  onPressButton: onPressBacks,
+                  imageBack: imageBack,
+                  imageNotification: imageNotifications,
+                  seconImageNotification: seconImageNotifications),
+              // child:HeaderNew(title: titles, onPressButton: onPressBacks,imageBack: imageBack,imgMenu: imageMenu,imgAddCart: imageAddCart,) ,
+
+            ),
+          Container(
+            //   child:SafeArea(child: child)
+            child: Column(
+              children: [
+                Container(
+                  height: height * .2,
+                  width: double.maxFinite,
+                  decoration: BoxDecoration(color: Colors.white),
+                  //  decoration:BoxDecoration(borderRadius: BorderRadius.circular(15)),
+                  padding: EdgeInsets.all(8),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(10),
+                    child: SizedBox.fromSize(
+                      child: ImageSlideshow(
+                        width: 1000,
+                        height: 200,
+                        initialPage: 0,
+                        indicatorColor: Colors.blue,
+                        isLoop: true,
+                        autoPlayInterval: 2000,
+                        children:
+                            List<Widget>.generate(dataImagess.length, (index) {
+                          return Image.network(
+                            dataImagess[index],
+                            fit: BoxFit.fill,
+                          );
+                        }),
+                      ),
                     ),
                   ),
                 ),
-              ), */
-                  /*    SizedBox(
-                height: 5,
-              ),
-              Container(
-                  height: height * .021,
-                  child: TickerText(
-                    // default values
-                    //controller: tickerTextController, // this is optional
-                    scrollDirection: Axis.horizontal,
-                    speed: 50,
-                    startPauseDuration: const Duration(seconds: 2),
-                    endPauseDuration: const Duration(seconds: 10),
-                    returnDuration: const Duration(milliseconds: 1000),
-                    primaryCurve: Curves.linear,
-                    returnCurve: Curves.easeOut,
-                    child: Text(
-                        "सोमवार कल्याण बाजार बम्पर धमाका अचूक जोड़ी पर कमाओ लाखों 100% फिक्स 1 जोड़ी 2 पत्ती सिर्फ एक दिन में आपका पूरा "),
-                  )), */
-                  /*  SizedBox(
-                height: 1,
-              ),
-              Container(
-                color: Colors.white,
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    Container(
+                SizedBox(
+                  height: 2,
+                ),
+                Container(
+                    height: height * .018,
+                    child: TickerText(
+                      // default values
+                      //controller: tickerTextController, // this is optional
+                      scrollDirection: Axis.horizontal,
+                      speed: 50,
+                      startPauseDuration: const Duration(seconds: 2),
+                      endPauseDuration: const Duration(seconds: 10),
+                      returnDuration: const Duration(milliseconds: 1000),
+                      primaryCurve: Curves.linear,
+                      returnCurve: Curves.easeOut,
+                      child: Text(
+                          "सोमवार कल्याण बाजार बम्पर धमाका अचूक जोड़ी पर कमाओ लाखों 100% फिक्स 1 जोड़ी 2 पत्ती सिर्फ एक दिन में आपका पूरा "),
+                    )),
+
+                Container(
+                  //  height: height*.1,
+                  //  margin: EdgeInsets.all(5),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                      Container(
+                          height: height * .0781,
+                          width: width * .281,
+                          margin: EdgeInsets.all(5),
+                          padding: EdgeInsets.all(5),
+                          decoration: BoxDecoration(
+                              shape: BoxShape.rectangle,
+                              color: Colors.red,
+                              borderRadius: BorderRadius.circular(10)),
+                          child: InkWell(
+                            onTap: () => onPressNext(context),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Container(
+                                  width: 30,
+                                  height: 30,
+                                  child: Image.asset(
+                                    "assets/images/apple.jpeg",
+                                    fit: BoxFit.fill,
+                                  ),
+                                ),
+                                Container(
+                                  child: Text(
+                                    "Withdraw",
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 13),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          )),
+                      Container(
                         height: height * .0781,
-                        width: width * .271,
-                        margin: EdgeInsets.all(10),
+                        width: width * .281,
+                        margin: EdgeInsets.all(5),
                         padding: EdgeInsets.all(5),
                         decoration: BoxDecoration(
                             shape: BoxShape.rectangle,
                             color: Colors.red,
                             borderRadius: BorderRadius.circular(10)),
-                        child: InkWell(
-                          onTap: () => onPressNext(context),
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Container(
-                                width: 30,
-                                height: 30,
-                                child: Image.asset(
-                                  "assets/images/apple.jpeg",
-                                  fit: BoxFit.fill,
-                                ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                              width: 30,
+                              height: 30,
+                              child: Image.asset(
+                                "assets/images/apple.jpeg",
+                                fit: BoxFit.fill,
                               ),
-                              Container(
-                                child: Text(
-                                  "Withdraw",
-                                  style: TextStyle(
-                                      color: Colors.white, fontSize: 13),
-                                ),
+                            ),
+                            Container(
+                              child: Text(
+                                "Add Points",
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 13),
                               ),
-                            ],
-                          ),
-                        )),
-                    Container(
-                      height: height * .0781,
-                      width: width * .281,
-                      margin: EdgeInsets.all(10),
-                      padding: EdgeInsets.all(5),
-                      decoration: BoxDecoration(
-                          shape: BoxShape.rectangle,
-                          color: Colors.red,
-                          borderRadius: BorderRadius.circular(10)),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Container(
-                            width: 30,
-                            height: 30,
-                            child: Image.asset(
-                              "assets/images/apple.jpeg",
-                              fit: BoxFit.fill,
                             ),
-                          ),
-                          Container(
-                            child: Text(
-                              "Add Points",
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 13),
-                            ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                    ),
-                    Container(
-                      height: height * .0781,
-                      width: width * .281,
-                      margin: EdgeInsets.all(10),
-                      padding: EdgeInsets.all(5),
-                      decoration: BoxDecoration(
-                          shape: BoxShape.rectangle,
-                          color: Colors.red,
-                          borderRadius: BorderRadius.circular(10)),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Container(
-                            width: 30,
-                            height: 30,
-                            child: Image.asset(
-                              "assets/images/apple.jpeg",
-                              fit: BoxFit.fill,
+                      Container(
+                        height: height * .0781,
+                        width: width * .281,
+                        margin: EdgeInsets.all(5),
+                        padding: EdgeInsets.all(5),
+                        decoration: BoxDecoration(
+                            shape: BoxShape.rectangle,
+                            color: Colors.red,
+                            borderRadius: BorderRadius.circular(10)),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                              width: 30,
+                              height: 30,
+                              child: Image.asset(
+                                "assets/images/apple.jpeg",
+                                fit: BoxFit.fill,
+                              ),
                             ),
-                          ),
-                          Container(
-                            child: Text(
-                              "Withdraw",
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 13),
+                            Container(
+                              child: Text(
+                                "Withdraw",
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 13),
+                              ),
                             ),
-                          ),
-                        ],
-                      ),
-                    )
-                  ],
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
                 ),
-              ), */
-                  // SizedBox(height: 5),
-                  Container(
-                    color: Colors.yellow,
-                    height: height * 0.619,
-                    child: InkWell(
-                        onTap: () => OnPressMarket(context),
-                        child: ListView.builder(
-                          itemBuilder: (context, index) => Container(
+
+                //   SizedBox(height: 1),
+
+                CupertinoScrollbar(
+                  child: Container(
+                    color: Colors.brown,
+                    height: height * 0.519,
+
+                    child: ListView.builder(
+                      itemBuilder: (context, index) => InkWell(
+                          onTap: () => OnPressMarket(
+                              context, datamarketNew[index]["Game"]),
+                          child: Container(
                             padding: EdgeInsets.symmetric(horizontal: 5),
-                            margin: EdgeInsets.all(5),
+                            margin: EdgeInsets.all(7),
                             decoration: BoxDecoration(
                                 color: Colors.white,
                                 borderRadius: BorderRadius.circular(15),
@@ -333,7 +773,7 @@ class _HomeDashboardState extends State<HomeDashboard> {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: <Widget>[
                                 Container(
-                                  margin: EdgeInsets.all(10),
+                                  margin: EdgeInsets.all(5),
                                   child: Column(
                                     children: [
                                       Container(
@@ -357,13 +797,14 @@ class _HomeDashboardState extends State<HomeDashboard> {
                                   ),
                                 ),
                                 Container(
-                                  margin: EdgeInsets.all(10),
+                                  margin: EdgeInsets.all(5),
                                   child: Column(
                                     children: [
                                       Container(
                                         child: Text(
                                           // "Hello",
-                                          "${dataMarket["marketName"]![index]}",
+                                          //   "${dataMarket["marketName"]![index]}",
+                                          "${datamarketNew[index]["name"]}",
                                           style: TextStyle(
                                               color: Colors.black,
                                               fontWeight: FontWeight.w800,
@@ -372,7 +813,7 @@ class _HomeDashboardState extends State<HomeDashboard> {
                                       ),
                                       Container(
                                           child: Text(
-                                        dataMarketsRec[index],
+                                        "${datamarketNew[index]["marketRecord"]}",
                                         style: TextStyle(
                                             color: Colors.black,
                                             fontWeight: FontWeight.w500,
@@ -387,11 +828,11 @@ class _HomeDashboardState extends State<HomeDashboard> {
                                         child: Row(
                                           children: [
                                             Text(
-                                              "Open Times : ${dataMarket['OpenTime']![index]} ",
+                                              "Open Times : ${datamarketNew[index]["OpenTime"]}",
                                               style: TextStyle(fontSize: 10),
                                             ),
                                             Text(
-                                              "Close Times : ${dataMarket["CloseTime"]![index]}",
+                                              "Close Times : ${datamarketNew[index]["CloseTime"]}",
                                               style: TextStyle(fontSize: 10),
                                             )
                                           ],
@@ -401,7 +842,7 @@ class _HomeDashboardState extends State<HomeDashboard> {
                                   ),
                                 ),
                                 Container(
-                                  margin: EdgeInsets.all(10),
+                                  margin: EdgeInsets.all(5),
                                   child: Column(
                                     children: [
                                       Container(
@@ -420,28 +861,17 @@ class _HomeDashboardState extends State<HomeDashboard> {
                                 )
                               ],
                             ),
-                          ),
-                          itemCount: dataMarket["marketName"]?.length,
-                        )),
-                    /*   child: ListView.builder(
-                  itemBuilder: (context, index) => ListTile(
-
-
-                    leading: Image.network(
-                      dataImagess[index],
-                      width: width * .1,
+                          )),
+                      itemCount: datamarketNew.length,
                     ),
-                    title: Text("Hello"),
+                    //),
                   ),
-                  itemCount: data.length,
-                ), */
-                  )
-                ],
-              ),
-            )
-          ],
-        )),
-      ),
+                )
+              ],
+            ),
+          )
+        ],
+      ))),
     );
   }
 }

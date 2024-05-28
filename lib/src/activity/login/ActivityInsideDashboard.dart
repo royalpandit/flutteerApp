@@ -1,16 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:hells/src/activity/login/ActivityCreateBid.dart';
 
-class ActivityInsideDashboard extends StatefulWidget {
-  const ActivityInsideDashboard({super.key});
+class ActivityInsideDashboard extends StatelessWidget {
+  var game1;
+  var title = "Create Bid";
+var imageBack = "assets/images/back.png";
+  ActivityInsideDashboard({super.key, this.game1});
 
-  @override
-  State<ActivityInsideDashboard> createState() => _ActivityInsideDashboard();
-}
+  //@override
+  // State<ActivityInsideDashboard> createState() => _ActivityInsideDashboard();
+//}
 
-class _ActivityInsideDashboard extends State<ActivityInsideDashboard> {
   onPressBack(context) {
     Navigator.pop(context);
   }
+//class _ActivityInsideDashboard extends State<ActivityInsideDashboard> {
+  OnPressNext(context) {
+    Navigator.of(context).push(MaterialPageRoute(builder: (context) => ActivityCreateBid()));
+ 
+  
+  }
+
 
   List dataImagess = [
     "https://static.libertyprim.com/files/familles/pomme-large.jpg?1569271834",
@@ -30,6 +40,9 @@ class _ActivityInsideDashboard extends State<ActivityInsideDashboard> {
   ];
   @override
   Widget build(BuildContext context) {
+    var height = MediaQuery.of(context).size.height;
+    //  print("Game=${game1}");
+
     return MaterialApp(
       home: Scaffold(
           appBar: AppBar(
@@ -39,21 +52,31 @@ class _ActivityInsideDashboard extends State<ActivityInsideDashboard> {
             title: Text("Games"),
             centerTitle: true,
           ),
+          resizeToAvoidBottomInset: false,
           body: GridView.builder(
-            
-              itemBuilder: (context, index) => Container(
-                color: Colors.amber,
-                    child:  Image.network(dataImagess[index],fit: BoxFit.fill),
-                  ),
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                 // childAspectRatio: 3 / 2,
-                  crossAxisSpacing: 10,
-                  mainAxisSpacing: 10),
-                  itemCount: dataImagess.length,
-                  )
-                  
-                  ),
+            itemBuilder: (context, index) => Container(
+              decoration: BoxDecoration(
+                  color: Colors.red,
+                  shape: BoxShape.rectangle,
+                  borderRadius: BorderRadius.circular(10)),
+              child: InkWell(
+                onTap: () => OnPressNext(context),
+                child: Column(
+                  children: [
+                    Image.network(
+                      game1[index]["image"],
+                      fit: BoxFit.fill,
+                      height: height * .2,
+                    ),
+                    Text(game1[index]["name"])
+                  ],
+                ),
+              ),
+            ),
+            gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2, crossAxisSpacing: 10, mainAxisSpacing: 10),
+            itemCount: game1.length,
+          )),
     );
   }
 }
