@@ -32,7 +32,7 @@ class ActivityWithdraw extends StatelessWidget {
           child: Column(
             children: [
               Column(
-                  //children: [Text("${name}")],
+                //children: [Text("${name}")],
                 children: [Text("Withdraw}")],
               ),
               Container(

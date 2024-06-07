@@ -8,10 +8,12 @@ class ListComponent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print("===::>>>$datamarketNew");
     return ListView.builder(
       padding: EdgeInsets.zero,
       itemBuilder: (context, index) => InkWell(
-          onTap: () => OnPressMarket(datamarketNew[index]["Game"]),
+          onTap: () => OnPressMarket(datamarketNew[index]),
+          //  onTap: () => OnPressMarket(datamarketNew[index]["Game"]),
           child: Container(
             //padding: EdgeInsets.symmetric(horizontal: 5),
 

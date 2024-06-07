@@ -31,7 +31,7 @@ class Header extends StatelessWidget {
         backgroundColor: Colors.red,
         leading: IconButton(
             onPressed: () => onPressButton(),
-            icon: Image.asset("${imageBack}", height: 30)),
+            icon: Image.asset("${imageBack}", height: 20)),
         title: Text("${title}"),
         centerTitle: true,
         titleTextStyle: TextStyle(color: Colors.black, fontSize: 20),

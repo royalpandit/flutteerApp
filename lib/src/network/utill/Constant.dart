@@ -1,0 +1,9 @@
+String basicUrl = "https://nircore.betablackboard.in/api/";
+//String basicUrl = "http://api.kalyanbazar.co.in/v1/";
+String KLogin = "login";
+String KUserLogin = "userLogin";
+String KEmployeeList = "employee-list";
+String username = 'admin';
+String password = 'Admin@123';
+String userpass = '$username:$password';
+String basicAuth = 'Basic ' + userpass;

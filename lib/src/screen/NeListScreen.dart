@@ -1,12 +1,17 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:hells/src/activity/login/ActivityGameRate.dart';
+import 'package:hells/src/activity/login/ActivityHowToHelp.dart';
 import 'package:hells/src/activity/login/ActivityInsideDashboard.dart';
 import 'package:hells/src/activity/login/ActivityWithdraw.dart';
 import 'package:hells/src/component/DrawerNew.dart';
 import 'package:hells/src/component/HeaderNew.dart';
 import 'package:hells/src/component/ListComponent.dart';
 import 'package:hells/src/component/responsive_widget.dart';
+import 'package:hells/src/network/api/authApi.dart';
+import 'package:http/http.dart' as http;
 
 class NeListScreen extends StatefulWidget {
   const NeListScreen({super.key});
@@ -15,6 +20,128 @@ class NeListScreen extends StatefulWidget {
 }
 
 class _NeListScreen extends State<NeListScreen> {
+  var code = 0;
+  var status = "";
+  var path = "";
+  var message = "";
+  var datalist = [];
+
+  List contry = [];
+  var designation = [];
+  bool isLoading = false;
+  var detals = [];
+  void initState() {
+    super.initState();
+    // userRegister();
+    OnPressList();
+  }
+
+  void OnPressList() async {
+    setState(() {
+      isLoading = true;
+    });
+    var paramssd = {
+      "owner_id": 240,
+      "company_id": 1,
+      "page": 1,
+      "search": "",
+      "sort_by": "",
+      "sort_type": ""
+    };
+    var authapi = authApi();
+    print("");
+    var res = await authapi.EmployeeList(paramssd);
+
+    print("helorres==>>>${res?.body.runtimeType}");
+
+    final responses = res?.body;
+    print("*******");
+   // print(jsonDecode(responses));
+  }
+
+  userRegister() async {
+    var params = jsonEncode(<String, dynamic>{
+      "owner_id": 240,
+      "company_id": 1,
+      "page": 1,
+      "search": "",
+      "sort_by": "",
+      "sort_type": ""
+    }); /* {"email": "", "password": "", "confirmpassword": ""}; */
+    print(params);
+    // const url = "http://192.168.130.148:4000/registeruser";
+    try {
+      const url = "https://nircore.betablackboard.in/api/employee-list";
+      final uri = Uri.parse(url);
+      final res = await http.post(
+        uri,
+        headers: <String, String>{
+          'Content-Type': 'application/json; charset=UTF-8',
+        },
+        body: params,
+      );
+
+      print(res.body);
+      var finalResponses = res.body;
+      var json = jsonDecode(finalResponses);
+      print("===>>>>>${json['data']}");
+      print("cont===>>>;;;${json['data']['designation_count']}");
+      print(
+          "EmployeeDeatils=======>>>${json['data']['employee_result']['data']}");
+      setState(() {
+        designation = json['data']['designation_count'];
+        detals = json['data']['employee_result']['data'];
+      });
+    } catch (e) {
+      print("error$e");
+    }
+  }
+
+  getCountry() async {
+    try {
+      // var URL = "https://nircore.betablackboard.in/api/country-list";
+      var URL = "https://nircore.betablackboard.in/api/employee-list";
+      //   var URL = "https://nircore.betablackboard.in/api/working-shift-list";
+      // var URL = "http://192.168.130.148:4000/registeruser";
+      var deay = 'hih';
+      print("hello$deay");
+      var params = {
+        "owner_id": 240,
+        "company_id": 1,
+        "page": 1,
+        /*  "owner_id": 240,
+        "company_id": 1,
+        "page": 1,
+        "search": "",
+        "sort_by": "",
+        "sort_type": "", */
+      };
+      print(params);
+      //{"email": "abhi@gmail.com", "password": "123456", "confirmpassword": "123456"};
+
+      /*  */
+
+      var url = Uri.parse(URL);
+      print(url);
+      var Response = await http.post(url, body: params);
+      print("Response$Response");
+      print("HelloHello");
+      print("${Response.body}");
+
+      var finalResponse = Response.body;
+      var json = jsonDecode(finalResponse);
+
+      //var data1 = json;
+      setState(() {
+        contry = json['data'];
+      });
+
+      print("${json['data']}");
+    } catch (e) {
+      print(e);
+    }
+  }
+
   List data = ["Apple", "Banana", "Cat", "Dog", "Elephant"];
 
   var dataMarket = {
@@ -543,9 +670,11 @@ class _NeListScreen extends State<NeListScreen> {
 
   @override
   Widget build(BuildContext context) {
+    print("print$designation");
+
     double heigh = MediaQuery.of(context).size.height;
     double widt = MediaQuery.of(context).size.width;
-
+    print("ThisContry=${contry}");
     return MaterialApp(
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -560,7 +689,7 @@ class _NeListScreen extends State<NeListScreen> {
               drawer: Drawer(
                 backgroundColor: Colors.white,
                 child: Builder(builder: (context) {
-                 return ListView(
+                  return ListView(
                     // Important: Remove any padding from the ListView.
                     padding: EdgeInsets.zero,
                     children: <Widget>[
@@ -629,9 +758,11 @@ class _NeListScreen extends State<NeListScreen> {
                         leading: Icon(Icons.contacts),
                         title: Text("Game Rates"),
                         onTap: () {
-                          Navigator.of(context).push(MaterialPageRoute(builder: (context) => ActivityGameRate()));
-                        //  onPressGameRates(context);
-                        //  Navigator.pop(context);
+                          Navigator.of(context).pop();
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => ActivityGameRate()));
+                          //  onPressGameRates(context);
+                          //  Navigator.pop(context);
                         },
                       ),
                       Divider(color: Colors.black),
@@ -639,7 +770,10 @@ class _NeListScreen extends State<NeListScreen> {
                         leading: Icon(Icons.contacts),
                         title: Text("How To Play"),
                         onTap: () {
-                          Navigator.pop(context);
+                          Navigator.of(context).pop();
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => ActivityHowToHelp()));
+                          //  Navigator.pop(context);
                         },
                       ),
                       Divider(color: Colors.black),
@@ -698,9 +832,9 @@ class _NeListScreen extends State<NeListScreen> {
                               color: Colors.brown,
                               height: heigh,
                               child: ListComponent(
-                                OnPressMarket: OnPressMarket,
-                                datamarketNew: datamarketNew,
-                              ),
+                                  OnPressMarket: OnPressMarket,
+                                  //  datamarketNew: datamarketNew,
+                                  datamarketNew: designation),
                             ),
                           ),
                   ],

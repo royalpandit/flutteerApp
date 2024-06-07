@@ -38,6 +38,14 @@ dependencies:
   flutter_image_slideshow: ^0.1.6
   carousel_slider: ^4.2.1
   ticker_text: ^2.0.0
+  lottie: ^3.1.2
+  http: ^1.2.1
+  flutter_webview_plugin: ^0.4.0
+  flutter_animate: ^4.5.0
+  shared_preferences: ^2.2.3
+  fluttertoast: ^8.2.6
+  another_flushbar: ^1.12.30
+  provider: ^6.1.2
   
 
 dev_dependencies:

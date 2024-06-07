@@ -24,7 +24,7 @@ class Po_Header extends StatelessWidget {
 
     return Column(children: [
       Container(
-        color: Colors.red,
+        color: Colors.white,
         // margin: EdgeInsets.symmetric(horizontal: 10),
         padding: EdgeInsets.all(10),
         child: Row(
@@ -35,7 +35,7 @@ class Po_Header extends StatelessWidget {
                 onTap: () => onPressBtn(),
                 child: Image.asset(
                   "${lefticon}",
-                  height: 40,
+                  height: 20,
                 ),
               ),
             ),
