@@ -11,6 +11,7 @@ import 'package:hells/src/component/HeaderNew.dart';
 import 'package:hells/src/component/ListComponent.dart';
 import 'package:hells/src/component/responsive_widget.dart';
 import 'package:hells/src/network/api/authApi.dart';
+import 'package:hells/src/network/model/request_employee.dart';
 import 'package:http/http.dart' as http;
 
 class NeListScreen extends StatefulWidget {
@@ -48,15 +49,31 @@ class _NeListScreen extends State<NeListScreen> {
       "sort_by": "",
       "sort_type": ""
     };
+    var owner_id = 240;
+    var company_id = 1;
+    var page = 1;
+    var search = "";
+    var sort_by = "";
+    var sort_type = "";
+
     var authapi = authApi();
-    print("");
+    print("DEk${paramssd['owner_id']}");
+
+    RequestEmployee req_emp = RequestEmployee(
+        owner_id,
+       company_id,
+      page,
+        search,
+        sort_by,
+       sort_type);
+    RequestEmployee.fromJson(paramssd);
+ print("helorresTOJSON==>>>${req_emp.toJson()}");
     var res = await authapi.EmployeeList(paramssd);
+    var json = jsonDecode(res!.body);
+    print("helorres==>>>${json}");
 
-    print("helorres==>>>${res?.body.runtimeType}");
-
-    final responses = res?.body;
     print("*******");
-   // print(jsonDecode(responses));
+    // print(jsonDecode(responses));
   }
 
   userRegister() async {

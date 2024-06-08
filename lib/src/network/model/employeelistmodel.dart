@@ -1,5 +1,12 @@
 class employeelistmodel {
- Map jsonData(data) {
+  int? code;
+  bool? status;
+  String? path;
+  String? message;
+  Data? data;
+
+
+  Map jsonData(data) {
     Map<String, dynamic> dataa = <String, dynamic>{
       "owner_id": data["owner_id"],
       "company_id": data["company_id"],
@@ -10,4 +17,7 @@ class employeelistmodel {
     };
     return dataa;
   }
+}
+class Data{
+
 }

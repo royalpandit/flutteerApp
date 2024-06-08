@@ -47,7 +47,9 @@ class authApi {
 
       print("*******api*******");
       print(response?.body);
-      var res1 = response?.body;
+      //var res1 = response?.body;
+     
+
       //print(jsonDecode(res1));
       return response;
     } catch (e) {

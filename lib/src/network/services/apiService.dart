@@ -36,9 +36,7 @@ class ApiService {
     try {
       final url = Uri.parse(basicUrl + weburl);
       final response = await http.post(url, headers: header, body: data);
-      print("apiservice====${response.body}");
-      var res2 = response.body;
-      var dataaa = JsonDecoder(res2);
+
       return response;
     } catch (e) {
       print("apiservice====$e");
