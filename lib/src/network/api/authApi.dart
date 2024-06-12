@@ -29,7 +29,7 @@ class authApi {
     return null;
   }
 
-  Future<Response?> EmployeeList(data) async {
+  EmployeeList(data) async {
     var emp = employeelistmodel();
 
     var empo = emp.jsonData(data);
@@ -45,15 +45,19 @@ class authApi {
     try {
       final response = await apiService.post(KEmployeeList, jsonEncode(empo));
 
-      print("*******api*******");
-      print(response?.body);
-      //var res1 = response?.body;
-     
-
       //print(jsonDecode(res1));
-      return response;
+      var res1 = jsonDecode(response!.body);
+      print("codetime${res1['message']}");
+
+      if (res1['code'] == 200) {
+        return res1['data'];
+      } else if (res1['code'] == 400) {
+        print(res1['message']);
+      }
+
+      return null;
     } catch (e) {
-      print(e);
+      print("cacheError$e");
     }
 
     return null;

@@ -69,8 +69,8 @@ class _NeListScreen extends State<NeListScreen> {
     RequestEmployee.fromJson(paramssd);
  print("helorresTOJSON==>>>${req_emp.toJson()}");
     var res = await authapi.EmployeeList(paramssd);
-    var json = jsonDecode(res!.body);
-    print("helorres==>>>${json}");
+    //var json = jsonDecode(res!.body);
+    print("helorres==>12>>${res}");
 
     print("*******");
     // print(jsonDecode(responses));
